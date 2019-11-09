@@ -1,6 +1,8 @@
 # Medical-Web-Advisor
 Web System Development project repository
 
+Single Page Application using React library & Redux for state management
+
 Browser extension for Redux state visualising:
 Redux DevTools - https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/?src=search
 

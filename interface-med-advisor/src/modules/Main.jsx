@@ -1,37 +1,37 @@
 import React, { Component, Fragment } from "react";
-import About from './About' 
-import Example from './Example' 
-import Home from './Home'
+import Example from "./Example";
+import Home from "./Home";
 
 import { connect } from "react-redux";
 
-import { testClick } from '../actions/HomeActions'
+import { Switch, Route, withRouter } from "react-router-dom";
+import AboutContainer from "../containers/AboutContainer";
 
-import {
-  Switch,
-  Route,
-  withRouter
-} from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import Theme from "../config/Theme";
 
 class Main extends Component {
   render() {
-  return (
-    <Fragment>
-        {/* A <Switch> looks through its children <Route>s and
+    return (
+      <ThemeProvider theme={Theme}>
+        <Fragment>
+          {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/example">
-            <Example />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-    </Fragment>
-  )};
+          <Switch>
+            <Route path="/about">
+              <AboutContainer />
+            </Route>
+            <Route path="/example">
+              <Example />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Fragment>
+      </ThemeProvider>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
@@ -40,7 +40,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onClick: test => testClick(test)
+  // onClick: test => testClick(test)
 };
 
 export default withRouter(
