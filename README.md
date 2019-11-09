@@ -14,11 +14,11 @@ Visual Studio Code
 Package manager: npm
 
 Task breakdown priorities:
-Header/footer
-python + flask hardcoded REST API
-login/register/logout
-forum subject + thread
-comments (CRUD)
-news articles
-user profile
-optional - news articles CRUD 
+- Header/footer
+- python + flask hardcoded REST API
+- login/register/logout
+- forum subject + thread
+- comments (CRUD)
+- news articles
+- user profile
+- optional - news articles CRUD 
