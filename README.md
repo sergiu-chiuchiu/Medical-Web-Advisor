@@ -6,6 +6,7 @@ Redux DevTools - https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/?s
 
 Text editor:
 Visual Studio Code
+
 Extensions: 
   - Prettier 
   - Code formatter
