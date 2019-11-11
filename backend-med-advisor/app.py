@@ -135,6 +135,95 @@ def delete_all_users():
     return str(num_rows_deleted) + " records successfully deleted"
 
 
+# ============================================================
+
+def populate_posts():
+    USERS = [
+        {"name": "Doug", "description": "Smart, creative", "password": "admin"},
+        {"name": "Andrew", "description": "love2code", "password": "admin"},
+        {"name": "Lucy", "description": "sports & code", "password": "admin"},
+    ]
+
+    for user in USERS:
+        u = User(name=user.get("name"), description=user.get("description"), password=user.get("password"))
+        db.session.add(u)
+
+    db.session.commit()
+
+
+if populate:
+    populate_users()
+
+
+# Create user
+@app.route('/user', methods=['POST'])
+def add_user():
+    name = request.json['name']
+    description = request.json['description']
+    password = request.json['password']
+
+    new_user = User(name, description, password)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return user_schema.jsonify(new_user)
+
+
+# Get all users
+@app.route('/user', methods=['GET'])
+def get_all_users():
+    all_users = User.query.all()
+    result = users_schema.dump(all_users)
+    return jsonify(result)
+
+
+# Get single user
+@app.route('/user/<id>', methods=['GET'])
+def get_user(id):
+    user = User.query.get(id)
+    return user_schema.jsonify(user)
+
+
+# Update a user
+@app.route('/user/<id>', methods=['PUT'])
+def update_user(id):
+    user = User.query.get(id)
+    name = request.json['name']
+    description = request.json['description']
+    password = request.json['password']
+
+    user.name = name
+    user.description = description
+    user.password = password
+
+    db.session.commit()
+    return user_schema.jsonify(user)
+
+
+# Delete User
+@app.route('/user/<id>', methods=['DELETE'])
+def delete_user(id):
+    user = User.query.get(id)
+    db.session.delete(user)
+    db.session.commit()
+    return user_schema.jsonify(user)
+
+
+# Delete all Users
+@app.route('/user', methods=['DELETE'])
+def delete_all_users():
+    try:
+        num_rows_deleted = db.session.query(User).delete()
+        db.session.commit()
+    except:
+        db.session.rollback()
+    return str(num_rows_deleted) + " records successfully deleted"
+
+
+
+
+
 # Run server
 if __name__ == "__main__":
     app.run(debug=True)
