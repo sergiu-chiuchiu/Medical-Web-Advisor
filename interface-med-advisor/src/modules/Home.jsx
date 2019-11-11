@@ -1,15 +1,29 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Login from "./authentication/Login";
 
 function mapStateToProps(state) {
   return {};
 }
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayLogin: true
+    };
+  }
+
+  openLoginForm = () => {
+    this.setState({ displayLogin: true });
+  };
+
   render() {
+    const { displayLogin } = this.state;
     return (
       <Fragment>
+        {displayLogin ? <Login/> : null}
         <nav>
           <ul>
             <li>
@@ -26,6 +40,8 @@ class Home extends Component {
         <button>
           <Link to="/about">About page</Link>
         </button>
+        <button onClick={this.openLoginForm}>Login</button>
+        <button>Register</button>
       </Fragment>
     );
   }
