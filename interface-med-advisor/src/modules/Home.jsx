@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Login from "./authentication/Login";
+import AuthenticationContainer from "../containers/AuthenticationContainer";
 
 function mapStateToProps(state) {
   return {};
@@ -15,15 +15,10 @@ class Home extends Component {
     };
   }
 
-  openLoginForm = () => {
-    this.setState({ displayLogin: true });
-  };
-
   render() {
-    const { displayLogin } = this.state;
     return (
       <Fragment>
-        {displayLogin ? <Login/> : null}
+        <AuthenticationContainer />
         <nav>
           <ul>
             <li>
@@ -40,7 +35,7 @@ class Home extends Component {
         <button>
           <Link to="/about">About page</Link>
         </button>
-        <button onClick={this.openLoginForm}>Login</button>
+
         <button>Register</button>
       </Fragment>
     );

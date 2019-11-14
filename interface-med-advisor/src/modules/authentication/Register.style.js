@@ -10,7 +10,7 @@ export const ModalBackground = styled.div`
   background-color: rgb(0, 0, 0); // fallback color
   background-color: rgba(0, 0, 0, 0.7);
 
-  .loginWrapper {
+  .registerWrapper {
     text-align: center
   }
 
@@ -29,6 +29,7 @@ export const ModalBackground = styled.div`
     margin-top: 5px;
     display: flex;
     justify-content: center;
+    font-size: 0.8em;
   }
   
   .submitButton {
@@ -59,13 +60,11 @@ export const ModalHeader = styled.div`
   background-color: rgb(248, 248, 246);
   border-bottom: 1px solid #D6D5D6
   
-  .closeLogin {
+  .closeRegister {
     float: right;
     margin-right: 5px;
     margin-top: 5px;
   }
-
-
   `;
 
 export const ModalHeaderText = styled.p`

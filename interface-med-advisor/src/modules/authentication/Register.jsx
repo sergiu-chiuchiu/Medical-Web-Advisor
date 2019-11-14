@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
   ModalBackground,
   Modal,
@@ -10,17 +10,18 @@ import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormSection } from "./components/FormSection";
 
-class Login extends Component {
+export default class Register extends Component {
   render() {
-    const { toggleLoginDisplay } = this.props;
+    const { toggleRegisterDisplay } = this.props;
     return (
+      <Fragment>
         <ModalBackground>
           <Modal>
             <ModalHeader>
               <FontAwesomeIcon
                 size="lg"
                 className="closeRegister"
-                onClick={toggleLoginDisplay}
+                onClick={toggleRegisterDisplay}
                 icon={faWindowClose}
               />
               <ModalHeaderText
@@ -47,12 +48,11 @@ class Login extends Component {
                 <input type="checkbox" />
                 <span>I agree to the terms and conditions*</span>
               </section>
-              <input className="submitButton" type="submit" value="Login" />
+              <input className="submitButton" type="submit" value="Register" />
             </div>
           </Modal>
         </ModalBackground>
+      </Fragment>
     );
   }
 }
-
-export default Login;

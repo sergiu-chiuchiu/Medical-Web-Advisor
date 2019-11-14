@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import Example from "./Example";
 import Home from "./Home";
 
 import { connect } from "react-redux";
@@ -20,9 +19,6 @@ class Main extends Component {
           <Switch>
             <Route path="/about">
               <AboutContainer />
-            </Route>
-            <Route path="/example">
-              <Example />
             </Route>
             <Route path="/">
               <Home />

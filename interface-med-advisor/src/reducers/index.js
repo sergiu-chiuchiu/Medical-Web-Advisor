@@ -5,4 +5,5 @@ import AuthenticationReducer from "./AuthenticationReducer"
 export default combineReducers({
     example: Example,
     authentication: AuthenticationReducer
+    
 })
