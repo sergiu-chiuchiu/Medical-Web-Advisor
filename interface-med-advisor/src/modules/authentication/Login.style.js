@@ -45,7 +45,7 @@ export const ModalBackground = styled.div`
 
 export const Modal = styled.div`
   height: 400px;
-  width: 300px;
+  min-width: 300px;
   border-radius: 10px;
   overflow: hidden;
   position: fixed;
@@ -74,7 +74,7 @@ export const ModalHeaderText = styled.p`
   padding-top: 10px;
   margin-top: ${props => props.marginTop || ""};
   margin-bottom: ${props => props.marginBottom || ""};
-  // font-size: ${props => props.fontSizeEm || ""}em;
+  font-size: ${props => props.fontSizeEm || ""}em;
 `;
 
 export const CloseButton = styled.button`

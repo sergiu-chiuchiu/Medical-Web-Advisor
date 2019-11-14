@@ -22,6 +22,7 @@ function mapDispatchToProps(dispatch) {
 class Login extends Component {
   closeModal = () => {
     console.log("dfsfdsfds");
+    
   };
 
   render() {
@@ -37,14 +38,10 @@ class Login extends Component {
                 onClick={this.closeModal}
                 icon={faWindowClose}
               />
-              <ModalHeaderText
-                marginBottom={"0"}
-                marginTop={"0"}
-                fontSizeEm={"0.75"}
-              >
+              <ModalHeaderText marginBottom={"0"} marginTop={"0"}>
                 Welcome back to our website!
               </ModalHeaderText>
-              <ModalHeaderText marginTop={"0"} fontSizeEm={"0.75"}>
+              <ModalHeaderText marginTop={"0"}>
                 Fill out the form to log in to the webiste
               </ModalHeaderText>
             </ModalHeader>
