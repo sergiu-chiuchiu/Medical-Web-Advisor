@@ -37,6 +37,7 @@ class Home extends Component {
         </button>
 
         <button>Register</button>
+        <p>News Page</p>
       </Fragment>
     );
   }
