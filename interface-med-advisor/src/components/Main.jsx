@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Menu from "./menu/Menu";
 import Footer from "./footer/Footer";
 import logo from "./../components/menu/logo.png";
 import Home from "./Home";
@@ -9,10 +8,10 @@ import AboutContainer from "../containers/AboutContainer";
 import { ThemeProvider } from "styled-components";
 import Theme from "../config/Theme";
 import MedicalStaff from "./MedicalStaff";
-import Login from "./authentication/Login";
-import Register from "./authentication/Register";
 import MenuContainer from "../containers/MenuContainer";
 import AuthenticationContainer from "../containers/AuthenticationContainer";
+import NewsListContainer from "../containers/NewsListContainer";
+
 
 class Main extends Component {
   render() {
@@ -20,15 +19,9 @@ class Main extends Component {
       { label: "Home", link: "/home", active: true },
       { label: "Medical Staff", link: "/medicalstaff" },
       { label: "Feeds", link: "#feeds" },
-      { label: "Contact", link: "#contact-us" },
+      { label: "News", link: "/news" },
       { label: "About", link: "/about" },
-      // { label: "Login", link: "/login" },
-      // { label: "Register", link: "/register" }
     ];
-
-    const { isLoginDisplayed, isRegisterDisplayed } = this.props;
-    const { toggleLoginDisplay, toggleRegisterDisplay} = this.props;
-
 
     return (
       <ThemeProvider theme={Theme}>
@@ -47,6 +40,9 @@ class Main extends Component {
             </Route>
             <Route path="/medicalstaff">
               <MedicalStaff />
+            </Route>
+            <Route path="/news">
+              <NewsListContainer />
             </Route>
             <Route path="/">
               <Home />
