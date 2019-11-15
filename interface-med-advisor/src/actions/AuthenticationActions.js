@@ -1,6 +1,7 @@
 import { TOGGLE_LOGIN_DISPLAY, TOGGLE_REGISTER_DISPLAY } from "./ActionTypes";
 
 export const toggleLoginDisplay = () => {
+  console.log("fgdsgndfkjghdfks")
   return {
     type: TOGGLE_LOGIN_DISPLAY,
   };

@@ -13,7 +13,6 @@ const AuthenticationReducer = (state = initialState, { type, payload }) => {
         isLoginDisplayed: !state.isLoginDisplayed
       };
     case TOGGLE_REGISTER_DISPLAY:
-    console.log("WWWWWWWWWWW")  
     return {
         ...state,
         isRegisterDisplayed: !state.isRegisterDisplayed

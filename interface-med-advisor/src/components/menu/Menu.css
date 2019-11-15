@@ -48,6 +48,7 @@
 
 .menu__link:hover {
     color: #ffaa3b;
+    cursor: pointer;
 }
 
 .menu__link--active {

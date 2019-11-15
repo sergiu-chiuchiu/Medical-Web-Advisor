@@ -45,11 +45,12 @@ export const ModalBackground = styled.div`
   `;
 
 export const Modal = styled.div`
-  height: 400px;
+  min-height: 200px;
   min-width: 300px;
   border-radius: 10px;
   overflow: hidden;
   position: fixed;
+  padding-bottom: 30px;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -64,6 +65,10 @@ export const ModalHeader = styled.div`
     float: right;
     margin-right: 5px;
     margin-top: 5px;
+    
+    &:hover {
+      cursor: pointer;
+    }
   }
   `;
 

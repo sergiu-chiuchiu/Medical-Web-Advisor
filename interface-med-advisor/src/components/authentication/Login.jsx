@@ -39,14 +39,8 @@ class Login extends Component {
               </ModalHeaderText>
             </ModalHeader>
             <div className="registerWrapper">
-              <FormSection inputLabel="Username" required />
-              <FormSection inputLabel="Name" />
               <FormSection inputLabel="Email" required />
               <FormSection inputLabel="Password" required />
-              <section className="termsAndCond">
-                <input type="checkbox" />
-                <span>I agree to the terms and conditions*</span>
-              </section>
               <input className="submitButton" type="submit" value="Login" />
             </div>
           </Modal>

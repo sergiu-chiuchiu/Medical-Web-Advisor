@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import Menu from "./menu/Menu";
 import Footer from "./footer/Footer";
@@ -10,6 +10,8 @@ import { ThemeProvider } from "styled-components";
 import Theme from "../config/Theme";
 import MedicalStaff from "./MedicalStaff";
 import Login from "./authentication/Login";
+import Register from "./authentication/Register";
+import MenuContainer from "../containers/MenuContainer";
 
 class Main extends Component {
   render() {
@@ -19,16 +21,24 @@ class Main extends Component {
       { label: "Feeds", link: "#feeds" },
       { label: "Contact", link: "#contact-us" },
       { label: "About", link: "/about" },
-      { label: "Login", link: "/login" },
-      { label: "Register", link: "#register" }
+      // { label: "Login", link: "/login" },
+      // { label: "Register", link: "/register" }
     ];
+
+    const { isLoginDisplayed, isRegisterDisplayed } = this.props;
+    const { toggleLoginDisplay, toggleRegisterDisplay} = this.props;
+
 
     return (
       <ThemeProvider theme={Theme}>
         <div className="App">
           <div className="container center">
-            <Menu links={links} logo={logo} />
+            <MenuContainer links={links} logo={logo} />
           </div>
+
+          {isLoginDisplayed ? (<Login toggleLoginDisplay={toggleLoginDisplay} />) : "" }
+          {isRegisterDisplayed ? (<Register toggleRegisterDisplay={toggleRegisterDisplay} />) : "" }
+
           {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
           <Switch>
@@ -41,9 +51,6 @@ class Main extends Component {
             <Route path="/">
               <Home />
             </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
           </Switch>
           <Footer />
         </div>
@@ -53,6 +60,7 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => ({
+  ...state.authentication,
   // getItems: state.main.getItems,
   // headerDisplayed: state.common.headerDisplayed,
 });
