@@ -12,6 +12,7 @@ import MedicalStaff from "./MedicalStaff";
 import Login from "./authentication/Login";
 import Register from "./authentication/Register";
 import MenuContainer from "../containers/MenuContainer";
+import AuthenticationContainer from "../containers/AuthenticationContainer";
 
 class Main extends Component {
   render() {
@@ -36,8 +37,7 @@ class Main extends Component {
             <MenuContainer links={links} logo={logo} />
           </div>
 
-          {isLoginDisplayed ? (<Login toggleLoginDisplay={toggleLoginDisplay} />) : "" }
-          {isRegisterDisplayed ? (<Register toggleRegisterDisplay={toggleRegisterDisplay} />) : "" }
+          <AuthenticationContainer />
 
           {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}

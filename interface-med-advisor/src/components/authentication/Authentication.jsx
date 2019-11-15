@@ -8,9 +8,7 @@ export default class Authentication extends Component {
         return (
             <Fragment>
                 {isLoginDisplayed ? (<Login toggleLoginDisplay={toggleLoginDisplay} />) : "" }
-                <button onClick={toggleLoginDisplay}>Open Login</button>
                 {isRegisterDisplayed ? <Register toggleRegisterDisplay={toggleRegisterDisplay}/> : ""}
-                <button onClick={toggleRegisterDisplay}>Open Register</button>
             </Fragment>
         )
     }
