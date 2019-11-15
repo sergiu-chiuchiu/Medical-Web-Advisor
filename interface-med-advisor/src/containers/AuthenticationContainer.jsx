@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Authentication from "../modules/authentication/Authentication";
+import Authentication from "../components/authentication/Authentication";
 import { toggleLoginDisplay, toggleRegisterDisplay} from "../actions/AuthenticationActions";
 
 const mapStateToProps = state => ({

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import About from "../modules/about/About";
+import About from "../components/about/About";
 
 import { clickTest } from "../actions/TestActions";
 
