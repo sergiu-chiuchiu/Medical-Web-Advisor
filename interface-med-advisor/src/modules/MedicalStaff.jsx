@@ -7,7 +7,7 @@ function mapStateToProps(state) {
     };
 }
 
-class Example extends Component {
+class MedicalStaff extends Component {
     render() {
         return (
             <div>
@@ -19,4 +19,4 @@ class Example extends Component {
 
 export default connect(
     mapStateToProps,
-)(Example);
+)(MedicalStaff);
