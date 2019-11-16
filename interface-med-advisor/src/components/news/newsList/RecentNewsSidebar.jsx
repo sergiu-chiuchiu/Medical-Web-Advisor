@@ -3,7 +3,6 @@ import {
   Grid,
   Paper,
   Typography,
-  ButtonBase,
   Divider,
   CardContent,
   CardMedia,
@@ -16,7 +15,10 @@ const useStyles = makeStyles(theme => ({
     MinHeight: "200px",
     textAlign: "center",
     padding: theme.spacing(2),
-    display: "block"
+    display: "block",
+  },
+  sideBarGrid: {
+    marginBottom: "20px",
   },
   card: {
     display: "flex"
@@ -29,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     flex: "1 0 auto"
   },
   cover: {
-    width: 200,
+    maxWidth: 250,
     height: 151,
     textAlign: "center",
     margin: "auto",
@@ -57,7 +59,7 @@ function RecentNewsSidebar(props) {
     ]
 
   return (
-    <Grid item sm>
+    <Grid item sm className={classes.sideBarGrid}>
       <Card>
         <Paper className={classes.sideNews}>
           <strong>Most recent news</strong>
@@ -78,7 +80,7 @@ function RecentNewsSidebar(props) {
             image={image}
             title="Live from space album cover"
           />
-          {idx == images.length - 1 ? "" : <Divider variant="middle" />}
+          {idx === images.length - 1 ? "" : <Divider variant="middle" />}
           </Fragment>)}
         </Paper>
       </Card>

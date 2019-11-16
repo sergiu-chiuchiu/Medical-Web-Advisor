@@ -11,6 +11,7 @@ import MedicalStaff from "./MedicalStaff";
 import MenuContainer from "../containers/MenuContainer";
 import AuthenticationContainer from "../containers/AuthenticationContainer";
 import NewsListContainer from "../containers/NewsListContainer";
+import NewsPageContainer from "../containers/NewsPageContainer";
 
 
 class Main extends Component {
@@ -43,6 +44,9 @@ class Main extends Component {
             </Route>
             <Route path="/news">
               <NewsListContainer />
+            </Route>
+            <Route path="/newsPage">
+              <NewsPageContainer />
             </Route>
             <Route path="/">
               <Home />

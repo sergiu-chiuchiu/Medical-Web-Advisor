@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { NewsListWrapper } from "./NewsList.style";
 import { Grid, Paper, Typography, ButtonBase } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import RecentNewsSidebar from "./RecentNewsSidebar";
+import { Link as RouterLink } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -97,7 +99,14 @@ export default function NewsList() {
                         variant="subtitle1"
                         style={{ cursor: "pointer" }}
                       >
-                        Learn more
+                        <Link
+                          to="/newsPage"
+                          component={RouterLink}
+                          variant="body2"
+                          color="primary"
+                        >
+                          Learn more
+                        </Link>
                       </Typography>
                     </Grid>
                   </Grid>

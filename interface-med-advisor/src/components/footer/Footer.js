@@ -1,6 +1,5 @@
 import React from "react";
 import "./Footer.css";
-import { Grid } from "react-bootstrap";
 import { SocialIcon } from 'react-social-icons';
 const Footer = () => {
     return (
