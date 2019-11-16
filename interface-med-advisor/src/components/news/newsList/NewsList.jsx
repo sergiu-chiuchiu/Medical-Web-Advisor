@@ -1,52 +1,112 @@
 import React, { Component } from "react";
 import { NewsListWrapper } from "./NewsList.style";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Paper, Typography, ButtonBase } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import RecentNewsSidebar from "./RecentNewsSidebar";
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary
-  },
+  // paper: {
+  //   padding: theme.spacing(2),
+  //   textAlign: "center",
+  //   color: theme.palette.text.secondary
+  // },
   gridContainer: {
     width: "70%",
     margin: "auto"
   },
-  sideNews: {
-    minHeight: "200px",
-    textAlign: "center",
+
+  paper: {
     padding: theme.spacing(2),
-}
+    margin: "auto",
+    maxWidth: "100%"
+  },
+  image: {
+    width: 128,
+    height: 128
+  },
+  img: {
+    margin: "auto",
+    display: "block",
+    maxWidth: "100%",
+    maxHeight: "100%"
+  }
 }));
+
+const images = [
+  "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=clamp&w=128&h=128&q=80",
+  "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=fill&fill=blur&w=128&h=128&q=60",
+  "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=fill&fill=blur&w=128&h=128&q=60",
+  "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=clamp&w=128&h=128&q=80",
+  "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=fill&fill=blur&w=128&h=128&q=60",
+  "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=fill&fill=blur&w=128&h=128&q=60"
+];
 
 export default function NewsList() {
   const classes = useStyles();
   return (
     <NewsListWrapper className={classes.root}>
       <Grid container className={classes.gridContainer} spacing={3}>
-        <Grid container sm={9} className={classes.gridContainer} spacing={3}>
-          <Grid item sm={12}>
-            <Paper className={classes.paper}>main content</Paper>
-          </Grid>
-          <Grid item sm={12}>
-            <Paper className={classes.paper}>main content</Paper>
-          </Grid>
-          <Grid item sm={12}>
-            <Paper className={classes.paper}>main content</Paper>
-          </Grid>
-          <Grid item sm={12}>
-            <Paper className={classes.paper}>main content</Paper>
-          </Grid>
+        <Grid
+          item
+          container
+          sm={8}
+          className={classes.gridContainer}
+          spacing={3}
+        >
+          {images.map((imgUrl, idx) => (
+            <Grid item sm={12} key={idx}>
+              <Paper className={classes.paper}>
+                <Grid container spacing={2}>
+                  <Grid item>
+                    <ButtonBase className={classes.image}>
+                      <img className={classes.img} alt="complex" src={imgUrl} />
+                    </ButtonBase>
+                  </Grid>
+                  <Grid item xs={12} sm container>
+                    <Grid item xs container direction="column" spacing={2}>
+                      <Grid item xs>
+                        <Typography gutterBottom variant="subtitle1">
+                          Article Headline
+                        </Typography>
+                        <Typography variant="body2" gutterBottom>
+                          Article description Lorem, ipsum dolor sit amet
+                          consectetur adipisicing elit. Ipsam magni quam odit,
+                          eligendi facere numquam ut ratione? Consectetur,
+                          eveniet. Ut, delectus? Suscipit necessitatibus alias
+                          similique. Necessitatibus quae eius laudantium
+                          aliquam.
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary">
+                          Tags: health, lifestyle
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography
+                          variant="body2"
+                          style={{ cursor: "pointer" }}
+                        >
+                          Published on {Math.abs(18 - 3 * idx)}/11/2019
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        variant="subtitle1"
+                        style={{ cursor: "pointer" }}
+                      >
+                        Learn more
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </Grid>
+          ))}
         </Grid>
-        <Grid item sm>
-          <Paper className={(classes.sideNews)}>
-            Most recent news
-          </Paper>
-        </Grid>
+        <RecentNewsSidebar />
       </Grid>
     </NewsListWrapper>
   );
