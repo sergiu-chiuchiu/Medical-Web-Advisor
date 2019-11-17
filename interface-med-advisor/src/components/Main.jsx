@@ -12,6 +12,8 @@ import MenuContainer from "../containers/MenuContainer";
 import AuthenticationContainer from "../containers/AuthenticationContainer";
 import NewsListContainer from "../containers/NewsListContainer";
 import NewsPageContainer from "../containers/NewsPageContainer";
+import MedicalStaffListContainer from "../containers/MedicalStaffListContainer";
+import MedicalStaffPageContainer from "../containers/MedicalStaffPageContainer";
 
 
 class Main extends Component {
@@ -19,7 +21,7 @@ class Main extends Component {
     let links = [
       { label: "Home", link: "/home", active: true },
       { label: "Medical Staff", link: "/medicalstaff" },
-      { label: "Feeds", link: "#feeds" },
+      { label: "Feeds", link: "/feeds" },
       { label: "News", link: "/news" },
       { label: "About", link: "/about" },
     ];
@@ -39,8 +41,11 @@ class Main extends Component {
             <Route path="/about">
               <AboutContainer />
             </Route>
-            <Route path="/medicalstaff">
-              <MedicalStaff />
+            <Route path="/medicalStaff">
+              <MedicalStaffListContainer />
+            </Route>
+            <Route path="/medicalStaffPage">
+              <MedicalStaffPageContainer />
             </Route>
             <Route path="/news">
               <NewsListContainer />
