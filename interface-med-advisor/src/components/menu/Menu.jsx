@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Menu.css";
 import searchIcon from "./search-icon.png";
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, Link } from "react-router-dom";
 
 class Menu extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class Menu extends Component {
       showForm: !this.state.showForm
     });
   }
-  
+
   render() {
     const { toggleLoginDisplay, toggleRegisterDisplay } = this.props;
 
@@ -65,14 +65,10 @@ class Menu extends Component {
           <ul className="menu__list">
             {linksMarkup}
             <li onClick={toggleRegisterDisplay} className="menu__list-item">
-              <span className="menu__link">
-                Register
-              </span>
+              <span className="menu__link">Register</span>
             </li>
             <li onClick={toggleLoginDisplay} className="menu__list-item">
-              <span  className="menu__link" >
-                Login
-              </span>
+              <span className="menu__link">Login</span>
             </li>
           </ul>
 
@@ -91,4 +87,4 @@ class Menu extends Component {
   }
 }
 
-export default withRouter(Menu)
+export default withRouter(Menu);

@@ -23,7 +23,7 @@ class Main extends Component {
       { label: "Home", link: "/home", active: true },
       { label: "Medical Staff", link: "/medicalstaff" },
       { label: "Feeds", link: "/feed" },
-      { label: "News", link: "/news" },
+      // { label: "News", link: "/news" },
       { label: "About", link: "/about" },
     ];
 
@@ -55,9 +55,11 @@ class Main extends Component {
               <NewsPageContainer />
             </Route>
             <Route exact path="/feed" component={RssFeedContainer} />
-            
+            <Route path="/home">
+              <NewsListContainer />
+            </Route>
             <Route path="/">
-              <Home />
+              <NewsListContainer />
             </Route>
           </Switch>
           <Footer />
