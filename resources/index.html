@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--  Meta  -->
+    <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" />
+    <title>MedCare Web Application Documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--  Styles  -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container mt-4 mb-4">
+
+        <nav>
+            <h2 class="text-info">Page of Contents</h1>
+                <ol class="content-list text-secondary">
+                    <li><a href="#abstract">Abstract</a></li>
+                    <li><a href="#Introduction">Introduction</a></li>
+                    <li><a href="#Front-End-Technologies">Front End Technologies</a></li>
+                    <li><a href="#Back-End-Technologies">Back End Technologies</a></li>
+                    <li><a href="#apis">API's</a></li>
+                </ol>
+        </nav>
+        <hr>
+        <br>
+        <h3 class="text-info">Project designed by:</h3>
+        <ol class="">
+            <li>Buhaescu Ciprian Constantin</li>
+            <li>Chiuchiu Sergiu-Georgian</li>
+        </ol>
+
+        <h3 id="abstract" class="text-info">Abstract</h3>
+        <p>
+            MedCare application is intended for use by persons of all ages that are interested in different medical
+            matters.
+            On the website users can find informations about the latest medical news, they can find the appropriate
+            doctors
+            for their medical problems, they can view doctors profiles and opinions and also rate them. Moreover, using
+            tagging model, users can be kept up to date with the latest medical news by subscribing to alerts and
+            notifications. Lastly, the website provides the possibility to create
+        </p>
+        <hr>
+        <br>
+        <h3 id="Introduction" class="text-info">Introduction</h3>
+        <p>
+            In the development of the web application we took into consideration multiple aspects such as the user
+            interaction and design.
+        </p>
+        <p>
+            Regarding the design we have taken into consideration to have an uniform layout across all of our pages. We
+            decided to use a simple yet modern design which consists of smooth surfaces and only a few light colors. We
+            preferred to use a combination of white, gray, red and black as backgrounds. Our aim is to provide the users
+            a clean and simple design. Since the design is light and easy to get accustomed with, we ensure that it will
+            be easy for the visitors to get used with the webiste functionalities, thus increasing the visitor retention
+            rate.
+        </p>
+        <p>
+            When it comes of user interaction we followed the KISS principle (Keep It Simple and "Smart"). This way we
+            tried to create the premises of an user fiendly environment where the flow of the application would follow
+            the logical and intuitive path that a visitor would prefer and use.
+        </p>
+        <hr>
+        <br>
+        <h3 id="Front-End-Technologies" class="text-info">Front End Technologies</h3>
+        <p>
+            For the development of the interface we decided to use React library for the ability to easily modularize
+            the HTML layout into reusable components and Redux for managing the state of the application at a global
+            scope.
+        </p>
+        <p>For this we used Node.js v13 as a react server and the package manger <code>npm</code> v6 that facilitates an
+            easy package
+            configuration through package.json</p>
+        <p>
+            Apart from that we used a series of additional packages that helped us in the development of various key
+            functionalities:
+        </p>
+        <ul>
+            <li>
+                <span class="text-secondary"><code>React-router-dom</code></span>
+                <p class="ml-4">With the help of this package we were able design our web application as a single page
+                    application. This would benefit especiially the performance of the application since it would no
+                    longer be necessary to relaod the entire page when the user switches from one page to another. Only
+                    the new assets will be requested form the react server, which in turn will translate to more fluent
+                    user navigation on the website.</p>
+            </li>
+            <li>
+                <span class="text-secondary"><code>Font Awesome</code></span>
+                <p class="ml-4">This package contains thousands of graphical elements that can be imported into the
+                    project, thus eliminating the need of manually creating the graphical content using css. Moreover
+                    with the latest version of this module that we are using it is no longer necessary to import into
+                    the deployed project all the icons provided. Developers can manually import only those icons that
+                    are actuallly used in the project.</p>
+            </li>
+            <li>
+                <span class="text-secondary"><code>Material-UI</code></span>
+                <p class="ml-4">It is an UI Framework that provides graphical React components which can then be
+                    customized through pre-defined properties. It is similar to react-bootstrap package.</p>
+            </li>
+            <li>
+                <span class="text-secondary"><code>React Styled Components</code></span>
+                <p class="ml-4">Provides the means of developing reusable styles which can also receive props, meaning
+                    that these components can be designed to be used in various scenarios.</p>
+            </li>
+            <li>
+                <span class="text-secondary"><code>Redux-thunk</code></span>
+                <p class="ml-4">Is a middleware which allows us to perform asynchronous request to the server.</p>
+            </li>
+            <li>
+                <span class="text-secondary"><code>axios</code></span>
+                <p class="ml-4">Promise based HTTP client that works with React.</p>
+            </li>
+        </ul>
+        <hr>
+        <br>
+        <h3 id="Back-End-Technologies" class="text-info">Back End Technologies</h3>
+        <p>For the Back End implementation our plan is to develop a REST API that would serve data to the client in JSON
+            format. To achieve this, we decided to use Python as the main programming language. On top of this, to
+            facilitate the development of the REST API we will use the lightweight Flask framework which is growing in
+            popularity exactly beacuse of its simplicity and ease of use, comparing to other frameworks such as Django.
+        </p>
+        <p>For the data persistence layer we intent to use Maria DB which is nothing but a fork of MySQL database server
+            now being managed by Oracle.</p>
+        <p>Similar to <code>npm</code> we will use <code>pip-env</code> to manage the externally imported librabries.
+            <code>pip-env</code> grants us the advantage of combining the popular package manager <code>pip</code> with
+            the concept of Python virtual environments which allows developing in parallel multiple projects that use
+            different vesions of Python and also different versions of the packages, on the same machine.</p>
+        <p>Another useful package that we will use is <code>Flask-SQLAlchemy</code> which is an Object Relational Mapper
+            for Python, similar to what Hibernate is being used for in Java. Thanks to this library it is no longer
+            necessary to manually create the database tables, since SQLAlchemy will generate it from the classes
+            created.</p>
+        <hr>
+        <br>
+        <h3 id="apis" class="text-info">API's</h3>
+        <p>The first web service that we integrated into our application is one for providing images. We opted to use
+            <a href="https://source.unsplash.com/" target="_blank"><strong>Unsplash Image API</strong></a> which offers
+            a database of over 1.4 million images.</p>
+        <ul class="ml-4 text-secondary">
+            <li>
+                Unsplash service is free to use for low to moderate volume of requests, which makes it ideal for our
+                website to retrieve the necessary image from their API, rather than requesting it from our server.
+            </li>
+            <li>
+                It allows us to request random images, yet it is also flexible enough to provide these images from
+                specified collections. In our case the medical collection.
+            </li>
+            <li>
+                For the requested image the API provides different query parameters that can be used to compress, crop,
+                resize, apply filters (blur etc.), change aspect ratio, such that by the time the image is received, it
+                is already properly formatted to be displayed on the webpage.
+            </li>
+        </ul>
+        <p>Another web service that we integrated into the application is a RSS feed that aggregates news from the
+            medical field. <a href="https://medisys.newsbrief.eu/medisys/homeedition/en/home.html"
+                targe="_blank"><strong>Medisys</strong></a> was used in our app in order to offer the users the
+            possibility to directly search for their subject of interest on the RSS feed website.</p>
+        <ul class="ml-4 text-secondary">
+            <li>
+                The feed is based on XML schema, thus in order to parse it into a JavaScript object we used another API
+                specialized for RSS feeds.
+            </li>
+        </ul>
+        <p><a href="https://rss2json.com/" target="_blank"><strong>RSS to JSON</strong></a> is an online converter service that converts
+            the provided RSS feed as query param and returns it in a JSON format that can be easily saved into a
+            JavaScript object.</p>
+        <ul class="ml-4 text-secondary">
+            <li>
+                It is very important that the URL provided as query parameter is already escaped eg.
+                <code>https%3A%2F%2Fnews.ycombinator.com%2Frss</code> otherwise the request will not be resolved.
+            </li>
+        </ul>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="scripts/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
