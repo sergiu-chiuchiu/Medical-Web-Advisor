@@ -13,7 +13,6 @@ function RssFeed(props) {
 
   const getListings = async url => {
     try {
-      
       const response = await getFeedListing(url);
       setListings(response.data.items);
       setData(response.data.feed);
@@ -63,20 +62,15 @@ function RssFeed(props) {
   };
 
   const searchFeed = () => {
-    console.log("fdsfsd", props.rssFeedSearchQuery);
-    const rssUrl = `https://medisys.newsbrief.eu/rss?type=search&mode=advanced&atLeast=${props.rssFeedSearchQuery}`;
-    props.history.push(`${window.location.pathname}?url=${rssUrl}`)
+    const SearchQueryFormatted = props.rssFeedSearchQuery.replace(" ", "+");
+    const rssUrl = `https://medisys.newsbrief.eu/rss?type=search&mode=advanced&atLeast=${SearchQueryFormatted}`;
+    // props.history.push(`${window.location.pathname}?url=${props.rssFeedSearchQuery}`)
 
-    console.log("my url ",url)
-    const test = querystring.encode(props.location.search)["?url"]
-    querystring.stringify({rss_url: ""});
+    const url = querystring.stringify({ rss_url: rssUrl });
 
-
-    const url = querystring.decode(props.location.search)["?url"];
-      setUrl(url);
-      getListings(url);
-      setInitialized(true);
-
+    setUrl(url);
+    getListings(url);
+    setInitialized(true);
   };
 
   const preventDefault = event => event.preventDefault();
