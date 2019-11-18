@@ -12,6 +12,7 @@ import MenuContainer from "../containers/MenuContainer";
 import AuthenticationContainer from "../containers/AuthenticationContainer";
 import NewsListContainer from "../containers/NewsListContainer";
 import NewsPageContainer from "../containers/NewsPageContainer";
+import RssFeedContainer from "../containers/RssFeedContainer";
 
 
 class Main extends Component {
@@ -19,7 +20,7 @@ class Main extends Component {
     let links = [
       { label: "Home", link: "/home", active: true },
       { label: "Medical Staff", link: "/medicalstaff" },
-      { label: "Feeds", link: "#feeds" },
+      { label: "Feeds", link: "/feed?url=fgdfs" },
       { label: "News", link: "/news" },
       { label: "About", link: "/about" },
     ];
@@ -48,6 +49,8 @@ class Main extends Component {
             <Route path="/newsPage">
               <NewsPageContainer />
             </Route>
+            <Route exact path="/feed" component={RssFeedContainer} />
+            
             <Route path="/">
               <Home />
             </Route>

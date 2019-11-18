@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./Menu.css";
 import searchIcon from "./search-icon.png";
+import { withRouter, Link } from 'react-router-dom'
 
-export default class Menu extends Component {
+class Menu extends Component {
   constructor() {
     super();
 
@@ -33,9 +34,9 @@ export default class Menu extends Component {
 
     let linksMarkup = this.props.links.map((link, index) => {
       let linkMarkup = link.active ? (
-        <a className="menu__link menu__link--active" href={link.link}>
+        <Link className="menu__link menu__link--active" to={link.link}>
           {link.label}
-        </a>
+        </Link>
       ) : (
         <a className="menu__link" href={link.link}>
           {link.label}
@@ -90,4 +91,4 @@ export default class Menu extends Component {
   }
 }
 
-// export default Menu;
+export default withRouter(Menu)
