@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container";
 import SubFeaturedPost from "./SubFeaturedPost";
 import MainFeaturedPost from "./MainFeaturedPost";
 import RecentNewsSidebar from "../newsList/RecentNewsSidebar";
+import Rating from '@material-ui/lab/Rating';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -69,6 +70,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function NewsPage() {
   const classes = useStyles();
+  const [value, setValue] = React.useState(3);
+
   return (
     <Fragment>
       <CssBaseline />
@@ -82,6 +85,18 @@ export default function NewsPage() {
               <Typography variant="h5" gutterBottom>
                 My Article Title
               </Typography>
+              <Typography
+                        variant="subtitle1"
+                        style={{ cursor: "pointer" }}
+                      >
+                      <Rating
+                          name="simple-controlled"
+                          value={value}
+                          onChange={(event, newValue) => {
+                            setValue(newValue);
+                          }}
+                      />
+                      </Typography>
               <Divider />
               <Typography
                 variant="caption"
