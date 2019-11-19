@@ -14,7 +14,6 @@
 
 <body>
     <div class="container mt-4 mb-4">
-
         <nav>
             <h2 class="text-info">Page of Contents</h1>
                 <ol class="content-list text-secondary">
@@ -24,6 +23,13 @@
                     <li><a href="#Back-End-Technologies">Back End Technologies</a></li>
                     <li><a href="#apis">API's</a></li>
                     <li><a href="#uiDesign">User interaction and design</a></li>
+                    <ol class="ml-1 sub-list content-list">
+                        <li><a href="#authentication">Authentication</a></li>
+                        <li><a href="#home-page">Home page</a></li>
+                        <li><a href="#news-page">News page</a></li>
+                        <li><a href="#rss-feed">Search in external RSS Feed</a></li>
+                        <li><a href="#medical-staff">Medical Staff</a></li>
+                    </ol>
                 </ol>
         </nav>
         <hr>
@@ -178,7 +184,23 @@
         <h3 id="uiDesign" class="text-info">User interaction and design</h3>
         <p>The web application we propose consists of multiple modules that we will describe more in depth below.</p>
         <br>
-        <h5>Home page</h5>
+        <h5 id="authentication" class="text-info">Authentication</h5>
+        <img src="register.png" class="img-fluid" alt="Register page">
+        <br>
+        <br>
+        <p>For authentication we decided to use a modal for both registration and login features. This way the user is
+            not required to leave the current page he is visiting.</p>
+        <p>We tried to keep the registration form as light as possible, so the required fields are username, name, email
+            and password. Among these we decided to leave the name field as an optional input.</p>
+        <p>In addition, we intend to provide a profile page where the user can change specific informations about him
+            change his password etc.</p>
+
+
+        <br>
+        <h5 id="home-page" class="text-info">Home page</h5>
+        <img src="homePage.png" class="img-fluid" alt="">
+        <br>
+        <br>
         <p>The home page contains a list with the recommended featured news in the medical domain. Moreover the page
             also features a sidebar that displays the latest news.</p>
         <p>We also intend to add tagging to each news page so that the user can receive more personalized content based
@@ -193,10 +215,35 @@
         <p>Furthermore the news displayed also have a rating option, meaning that the visitors can quickly see the
             quality of the article and they can themselves rate the article.</p>
         <br>
-        <h5>News page</h5>
+        <h5 id="news-page" class="text-info">News page</h5>
         <p>From the news list a visitor can then easily access the news page and read the entire article. We provide
-            additional informations such as publication date, author, and tags.</p>
-        <p>About featured article...</p>
+            additional informations such as publication date, author and tags.</p>
+        <p>The article is structured such that the first thing the reader will see is a featured article related to that
+            topic. Under that 2 more smaller cards are displayed that link as well to other related articles.</p>
+        <p>We also intend in the future to provide the facility for readers to view and leave comments. Moreover, we
+            intend to implement a feature that will allow the users to receive email alerts when a new comment has been
+            published.</p>
+        <p>The rating functionality is also present at the top of the article.</p>
+
+        <br>
+        <h5 id="rss-feed" class="text-info">Search in external RSS Feed</h5>
+        <p>On this page we offer the possibility to the users to search outside the boudaries of our website the medical
+            informations they need. A visitor that is interested in a specific topic can access this feature and search
+            for information using the rss feed aggregator <a
+                href="https://medisys.newsbrief.eu/medisys/homeedition/en/home.html"
+                targe="_blank"><strong>Medisys</strong></a>, that we use in our implementation to retrieve the desired
+            data.</p>
+        <p>After the information is retrieved from the rss service, we display it on the page in a listed order,
+            where we provide various informations such as the article title, a short description, related tags adn
+            publication date.</p>
+            <br>
+        <h5 id="medical-staff" class="text-info">Medical Staff</h5>
+        <p>On this page the visitors can find medical specialists in various fields of expertise. they can also filter
+            them by city of residence.</p>
+        <p>Moreover, we intend to also provide the work location of the specialists and display on a map where they are
+            each situated compared to the current location of the user.</p>
+        <p>Functionalities such as add to favorite and rating will also be available, as well as reviews from their
+            former patients.</p>
     </div>
 
 
