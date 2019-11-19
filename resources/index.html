@@ -23,6 +23,7 @@
                     <li><a href="#Front-End-Technologies">Front End Technologies</a></li>
                     <li><a href="#Back-End-Technologies">Back End Technologies</a></li>
                     <li><a href="#apis">API's</a></li>
+                    <li><a href="#uiDesign">User interaction and design</a></li>
                 </ol>
         </nav>
         <hr>
@@ -163,8 +164,9 @@
                 specialized for RSS feeds.
             </li>
         </ul>
-        <p><a href="https://rss2json.com/" target="_blank"><strong>RSS to JSON</strong></a> is an online converter service that converts
-            the provided RSS feed as query param and returns it in a JSON format that can be easily saved into a
+        <p><a href="https://rss2json.com/" target="_blank"><strong>RSS to JSON</strong></a> is an online converter
+            service that converts
+            the provided RSS feed as query param and returns the data in a JSON format that can be easily saved into a
             JavaScript object.</p>
         <ul class="ml-4 text-secondary">
             <li>
@@ -172,6 +174,29 @@
                 <code>https%3A%2F%2Fnews.ycombinator.com%2Frss</code> otherwise the request will not be resolved.
             </li>
         </ul>
+        <hr><br>
+        <h3 id="uiDesign" class="text-info">User interaction and design</h3>
+        <p>The web application we propose consists of multiple modules that we will describe more in depth below.</p>
+        <br>
+        <h5>Home page</h5>
+        <p>The home page contains a list with the recommended featured news in the medical domain. Moreover the page
+            also features a sidebar that displays the latest news.</p>
+        <p>We also intend to add tagging to each news page so that the user can receive more personalized content based
+            on the matching between his interest and the content available.</p>
+        <h6>The services/technologies used on this page in particular are:</h6>
+        <ul class="ml-4 text-secondary">
+            <li>
+                Unsplash API: for requesting the desired images corresponding to the article.
+            </li>
+            <li>Material-UI: for designing the layout of the page, grid model, etc.</li>
+        </ul>
+        <p>Furthermore the news displayed also have a rating option, meaning that the visitors can quickly see the
+            quality of the article and they can themselves rate the article.</p>
+        <br>
+        <h5>News page</h5>
+        <p>From the news list a visitor can then easily access the news page and read the entire article. We provide
+            additional informations such as publication date, author, and tags.</p>
+        <p>About featured article...</p>
     </div>
 
 
