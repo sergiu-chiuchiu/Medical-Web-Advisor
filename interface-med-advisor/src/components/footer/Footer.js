@@ -9,7 +9,7 @@ const Footer = () => {
                     <td className="copyright pull-right">
                         <p>
                             &copy; {new Date().getFullYear()}{" "}
-                            Medical Advisor 
+                            MedCare 
                         </p>
                     </td>
                     <td className="socialIcons">

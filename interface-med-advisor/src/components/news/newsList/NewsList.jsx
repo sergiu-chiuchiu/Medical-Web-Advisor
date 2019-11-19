@@ -5,6 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import RecentNewsSidebar from "./RecentNewsSidebar";
 import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
+import Rating from '@material-ui/lab/Rating';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -44,6 +46,7 @@ const images = [
 
 export default function NewsList() {
   const classes = useStyles();
+  const [value, setValue] = React.useState(3);
   return (
     <NewsListWrapper className={classes.root}>
       <Grid container className={classes.gridContainer} spacing={3}>
@@ -104,6 +107,19 @@ export default function NewsList() {
                           Learn more
                         </Link>
                       </Typography>
+                      <Typography
+                        variant="subtitle1"
+                        style={{ cursor: "pointer" }}
+                      >
+                      <Rating
+                          name="simple-controlled"
+                          value={value}
+                          onChange={(event, newValue) => {
+                            setValue(newValue);
+                          }}
+                      />
+                      </Typography>
+
                     </Grid>
                   </Grid>
                 </Grid>
