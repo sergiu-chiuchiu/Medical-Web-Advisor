@@ -44,6 +44,7 @@ export default class Register extends Component {
               <FormSection inputLabel="Name" />
               <FormSection inputLabel="Email" required />
               <FormSection inputLabel="Password" required />
+              <FormSection inputLabel="Repeat Password" required />
               <section className="termsAndCond">
                 <input type="checkbox" />
                 <span>I agree to the terms and conditions*</span>
