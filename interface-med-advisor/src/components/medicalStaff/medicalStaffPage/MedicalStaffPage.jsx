@@ -4,15 +4,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
 import Divider from "@material-ui/core/Divider";
 import Container from "@material-ui/core/Container";
-import SubFeaturedPost from "./SubFeaturedPost";
-import MainFeaturedPost from "./MainFeaturedPost";
-import RecentNewsSidebar from "../medicalStaffList/MostActiveDoctors";
-import GoogleMapReact from 'google-map-react';
 import SelectedDoctor from "./../medicalStaffPage/SelectedDoctor";
-import { Map, GoogleApiWrapper } from 'google-map-react';
+
 const useStyles = makeStyles(theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`
@@ -71,11 +66,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MedicalStaffPage() {
   const classes = useStyles();
-  const AnyReactComponent = ({ text }) => <div>{text}</div>;
-  const mapStyles = {
-    width: '100%',
-    height: '100%'
-  };
+
   return (
     <Fragment>
       <CssBaseline />

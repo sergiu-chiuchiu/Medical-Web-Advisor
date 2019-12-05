@@ -98,7 +98,7 @@ function RssFeed(props) {
       </Grid>
       <div className="feed-page">
         <h1 className="center title">
-          <img src={data.image} /> {data.title}
+          <img src={data.image} alt=""/> {data.title}
         </h1>
         <Grid
           container

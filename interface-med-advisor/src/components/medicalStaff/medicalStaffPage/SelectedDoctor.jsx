@@ -60,10 +60,7 @@ function SelectedDoctor(props) {
     const images = [
         "https://www.irishtimes.com/polopoly_fs/1.3641208.1537895677!/image/image.jpg_gen/derivatives/box_620_330/image.jpg"
     ]
-    const mapStyles = {
-      width: '100%',
-      height: '100%',
-    };
+
   return (
     <Grid item sm className={classes.sideBarGrid}>
       <Card>

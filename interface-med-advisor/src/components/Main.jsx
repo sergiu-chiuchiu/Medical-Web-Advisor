@@ -7,7 +7,6 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import AboutContainer from "../containers/AboutContainer";
 import { ThemeProvider } from "styled-components";
 import Theme from "../config/Theme";
-import MedicalStaff from "./MedicalStaff";
 import MenuContainer from "../containers/MenuContainer";
 import AuthenticationContainer from "../containers/AuthenticationContainer";
 import NewsListContainer from "../containers/NewsListContainer";
@@ -76,7 +75,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  // onClick: test => testClick(test)
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
