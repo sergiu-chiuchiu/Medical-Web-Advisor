@@ -1,6 +1,12 @@
 # Medical-Web-Advisor
 Web System Development project repository
 
+## Backend
+Programming language: Python 3.6 !!!
+
+Python environment: pipenv
+
+## Frontend
 Single Page Application using React library & Redux for state management
 
 Browser extension for Redux state visualising:
