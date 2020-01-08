@@ -1,6 +1,10 @@
 # Medical-Web-Advisor
 Web System Development project repository
 
+## Backend
+Programming language: Python 3.6 !!!
+
+## Frontend
 Single Page Application using React library & Redux for state management
 
 Browser extension for Redux state visualising:
