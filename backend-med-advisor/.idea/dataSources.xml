@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.sqlite</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="db [2]" uuid="2bdf0e8a-7648-4acf-b263-520b4853910e">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\WSD\Medical-Web-Advisor\backend-med-advisor\med_app\db.sqlite</jdbc-url>
+    </data-source>
   </component>
 </project>
