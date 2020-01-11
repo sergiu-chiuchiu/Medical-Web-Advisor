@@ -14,6 +14,7 @@ marshmallow-sqlalchemy = "*"
 psycopg2 = "*"
 sqlalchemy-utils = "*"
 zappa = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.6"

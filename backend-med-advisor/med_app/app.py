@@ -22,8 +22,6 @@ def create_app(name=__name__, config_file = 'settings.py'):
     db.init_app(app)
 
 
-
-
     @app.cli.command('resetdb')
     def resetdb_command():
         """Destroys and creates the database + tables."""
