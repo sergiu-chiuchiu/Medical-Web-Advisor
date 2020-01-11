@@ -4,12 +4,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+awscli = "*"
 
 [packages]
 flask = "*"
 flask-sqlalchemy = "*"
 flask-marshmallow = "*"
 marshmallow-sqlalchemy = "*"
+psycopg2 = "*"
+sqlalchemy-utils = "*"
+zappa = "*"
 
 [requires]
 python_version = "3.6"
