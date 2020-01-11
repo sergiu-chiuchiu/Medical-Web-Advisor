@@ -21,29 +21,29 @@ SQLALCHEMY_TRACK_MODIFICATIONS=False
 
 
 
-class Config(object):
-    DEBUG = False
-    TESTING = False
-    CSRF_ENABLED = True
-    SECRET_KEY = 'this-really-needs-to-be-changed'
-    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-    # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-
-
-class ProductionConfig(Config):
-    DEBUG = False
-
-
-class StagingConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class DevelopmentConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class TestingConfig(Config):
-    TESTING = True
+# class Config(object):
+#     DEBUG = False
+#     TESTING = False
+#     CSRF_ENABLED = True
+#     SECRET_KEY = 'this-really-needs-to-be-changed'
+#     # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
+#     SQLALCHEMY_TRACK_MODIFICATIONS = False
+#     # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+#
+#
+# class ProductionConfig(Config):
+#     DEBUG = False
+#
+#
+# class StagingConfig(Config):
+#     DEVELOPMENT = True
+#     DEBUG = True
+#
+#
+# class DevelopmentConfig(Config):
+#     DEVELOPMENT = True
+#     DEBUG = True
+#
+#
+# class TestingConfig(Config):
+#     TESTING = True

@@ -6,6 +6,7 @@ from med_app.schema import user_schema, users_schema
 user = Blueprint('user', __name__)
 
 
+
 # Create user
 @user.route('/user', methods=['POST'])
 def add_user():
