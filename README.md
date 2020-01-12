@@ -1,6 +1,27 @@
 # Medical-Web-Advisor
 Web System Development project repository
 
+## Backend
+Programming language: Python 3.6 !!!
+
+Python environment: pipenv
+
+
+### To run the app
+
+$ pipenv shell
+
+For Windows:
+
+$ set FLASK_APP = med_app/app.py
+
+For Linux:
+
+$ export FLASK_APP = med_app/app.py
+
+$ flask run
+
+## Frontend
 Single Page Application using React library & Redux for state management
 
 Browser extension for Redux state visualising:
