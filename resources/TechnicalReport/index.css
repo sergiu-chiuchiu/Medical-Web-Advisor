@@ -6,16 +6,13 @@
   counter-reset: item;
 }
 
-.content-list li {
+.root-content-list li {
   font-size: 20px;
   display: block;
   font-weight: bold;
 }
 
-.content-list li:before {
-  content: counters(item, ".") " ";
+.root-content-list li:before {
+  content: counters(item, ".") " "; 
   counter-increment: item;
-}
-
-.sub-list {
 }
