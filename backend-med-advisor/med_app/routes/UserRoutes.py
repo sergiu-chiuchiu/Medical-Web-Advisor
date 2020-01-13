@@ -1,16 +1,26 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, abort
 from med_app.extensions import db
 from med_app.models.UserModel import User
 from med_app.schema import user_schema, users_schema
 
 user = Blueprint('user', __name__)
 
+@user.route('/login', methods=['POST'])
+def login():
+    if request.json['password'] is None or request.json['email'] is None:
+        abort(400)  # missing arguments
+
+    email = request.json['email']
+    password = User.hash_password(request.json['password'])
+
+    return user_schema.jsonify(new_user)
 
 # Create user
 @user.route('/user', methods=['POST'])
 def add_user():
     # TODO add check if the email and username already exists
-
+    if request.json['userName'] is None or request.json['email'] is None:
+        abort(400)  # missing arguments
     name = request.json['name']
     userName = request.json['userName']
     email = request.json['email']

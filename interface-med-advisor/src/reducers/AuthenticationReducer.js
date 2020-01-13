@@ -4,7 +4,7 @@ const initialState = {
   isLoginDisplayed: false,
   isRegisterDisplayed: false,
   userAuthenticated: false,
-  title: ""
+  email: ""
 };
 
 const AuthenticationReducer = (state = initialState, { type, payload }) => {

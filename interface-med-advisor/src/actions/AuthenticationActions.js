@@ -4,6 +4,7 @@ import {
   USER_LOGIN,
   SUBMIT_REGISTER
 } from "./ActionTypes";
+import {baseUrl, corsProxy} from "../config/endpoints"
 
 export const toggleLoginDisplay = () => {
   return {
@@ -18,12 +19,18 @@ export const toggleRegisterDisplay = () => {
 };
 
 export const submitLogin = authData => {
+  authData.userName = "testUser";
+  authData.name = "tester";
+  console.log("mmmmm", authData)
   return dispatch => {
-    return fetch("https://jsonplaceholder.typicode.com/todos/1",
+    return fetch(`${corsProxy}${baseUrl}/user`,
     {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
       },
       body: JSON.stringify(authData)
     })
@@ -33,6 +40,7 @@ export const submitLogin = authData => {
             type: USER_LOGIN,
             payload: {
               userAuthenticated: true,
+              email: res.email
             }
           });
       });
