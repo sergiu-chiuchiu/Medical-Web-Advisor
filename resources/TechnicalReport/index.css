@@ -16,3 +16,7 @@
   content: counters(item, ".") " "; 
   counter-increment: item;
 }
+
+.dbArchitecture {
+  margin-left: -45%;
+}
