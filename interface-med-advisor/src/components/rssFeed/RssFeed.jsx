@@ -64,7 +64,6 @@ function RssFeed(props) {
   const searchFeed = () => {
     const SearchQueryFormatted = props.rssFeedSearchQuery.replace(" ", "+");
     const rssUrl = `https://medisys.newsbrief.eu/rss?type=search&mode=advanced&atLeast=${SearchQueryFormatted}`;
-    // props.history.push(`${window.location.pathname}?url=${props.rssFeedSearchQuery}`)
 
     const url = querystring.stringify({ rss_url: rssUrl });
 

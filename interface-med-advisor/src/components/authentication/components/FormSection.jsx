@@ -1,15 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 
 
 export class FormSection extends Component {
     render() {
-        const {inputLabel, inputType, required} = this.props;
+        const {inputLabel, inputType, required, value, onChange} = this.props;
         return (
-            <form className="formSection">
+            // <form className="formSection">
+            <Fragment>
     <label htmlFor={inputLabel}>{inputLabel}{required ? "*" : ""}</label>
-              <input id={inputLabel} type={inputType} placeholder={inputLabel} />
-            </form>
+              <input id={inputLabel} type={inputType} placeholder={inputLabel} value={value} onChange={onChange}/>
+            </Fragment>
+            // </form>
         )
     }
 }

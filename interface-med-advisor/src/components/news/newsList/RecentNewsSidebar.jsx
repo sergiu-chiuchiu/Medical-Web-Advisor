@@ -64,7 +64,7 @@ function RecentNewsSidebar(props) {
         <Paper className={classes.sideNews}>
           <strong>Most recent news</strong>
           <Divider variant="fullWidth" />
-          {images.map((image, idx) => <Fragment>
+          {images.map((image, idx) => <Fragment key={idx}>
             <div className={classes.details}>
             <CardContent className={classes.content}>
               <Typography component="h5" variant="h5">

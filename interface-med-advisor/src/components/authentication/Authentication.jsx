@@ -4,10 +4,10 @@ import Register from './Register'
 
 export default class Authentication extends Component {
     render() {
-        const {isLoginDisplayed, toggleLoginDisplay, toggleRegisterDisplay, isRegisterDisplayed} = this.props;
+        const {isLoginDisplayed, toggleLoginDisplay, toggleRegisterDisplay, isRegisterDisplayed, submitLogin, submitRegister} = this.props;
         return (
             <Fragment>
-                {isLoginDisplayed ? (<Login toggleLoginDisplay={toggleLoginDisplay} />) : "" }
+                {isLoginDisplayed ? (<Login toggleLoginDisplay={toggleLoginDisplay} submitLogin={submitLogin} />) : "" }
                 {isRegisterDisplayed ? <Register toggleRegisterDisplay={toggleRegisterDisplay}/> : ""}
             </Fragment>
         )
