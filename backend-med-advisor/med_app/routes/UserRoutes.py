@@ -6,15 +6,17 @@ from med_app.schema import user_schema, users_schema
 user = Blueprint('user', __name__)
 
 
-
 # Create user
 @user.route('/user', methods=['POST'])
 def add_user():
+    # TODO add check if the email and username already exists
+
     name = request.json['name']
-    description = request.json['description']
+    userName = request.json['userName']
+    email = request.json['email']
     password = request.json['password']
 
-    new_user = User(name, description, password)
+    new_user = User(name, userName, email, password)
 
     db.session.add(new_user)
     db.session.commit()
@@ -41,11 +43,13 @@ def get_user(id):
 def update_user(id):
     user = User.query.get(id)
     name = request.json['name']
-    description = request.json['description']
+    userName = request.json['userName']
+    email = request.json['email']
     password = request.json['password']
 
     user.name = name
-    user.description = description
+    user.userName = userName
+    user.email = email
     user.password = password
 
     db.session.commit()

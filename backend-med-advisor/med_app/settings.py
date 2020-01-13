@@ -22,6 +22,13 @@ SQLALCHEMY_TRACK_MODIFICATIONS=False
 # to deploy on aws:
 # zappa update dev
 
+# {
+# 	"name": "Gigel3",
+# 	"userName":"gig123",
+# 	"email": "admin",
+# 	"password": "admin"
+# }
+
 
 # class Config(object):
 #     DEBUG = False

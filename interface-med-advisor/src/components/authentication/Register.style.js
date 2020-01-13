@@ -32,6 +32,12 @@ export const ModalBackground = styled.div`
     font-size: 0.8em;
   }
   
+  .termsAndCond span {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
   .submitButton {
     margin-top: 20px;
     border-radius: 5px;
