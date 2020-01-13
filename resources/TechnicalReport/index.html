@@ -132,19 +132,39 @@
             format. To achieve this, we decided to use Python as the main programming language. On top of this, to
             facilitate the development of the REST API we will use the lightweight <strong><a
                     href="https://www.fullstackpython.com/flask.html">Flask framework</a></strong> which is growing in
-            popularity exactly beacuse of its simplicity and ease of use, comparing to other frameworks such as Django.
+            popularity beacuse of its simplicity and ease of use, comparing to other frameworks such as Django.
         </p>
-        <p>For the data persistence layer we used PostgreSQL relational database management system. We have deployed the
-            PostgreSQL version 10 database on an Amazon Web Services RDS instance. Since we are using the free tier the
-            instance has allocated 1Gb of RAM memory and 1vCPU</p>
+        <p>For the data persistence layer we used <a href="https://www.postgresql.org/">PostgreSQL</a> relational
+            database management system. We have deployed the
+            PostgreSQL v11.5 database on an Amazon Web Services RDS instance. Since we are using the free tier the
+            instance has allocated 1Gb of RAM memory and 1vCPU.</p>
         <p>Similar to <code>npm</code> we will use <code>pip-env</code> to manage the externally imported librabries.
             <code>pip-env</code> grants us the advantage of combining the popular package manager <code>pip</code> with
-            the concept of Python virtual environments which allows developing in parallel multiple projects that use
-            different vesions of Python and also different versions of the packages, on the same machine.</p>
-        <p>Another useful package that we will use is <code>Flask-SQLAlchemy</code> which is an Object Relational Mapper
-            for Python, similar to what Hibernate is being used for in Java. Thanks to this library it is no longer
-            necessary to manually create the database tables, since SQLAlchemy will generate it from the classes
-            created.</p>
+            the concept of Python virtual environments (<code>virtualenv</code>) which allows developing in parallel
+            multiple projects that use different vesions of Python and also different versions of the packages, on the
+            same machine.</p>
+        <ul>
+            <li><code>Flask-SQLAlchemy</code>
+                <p class="ml-4">Another useful package that we used is <code>Flask-SQLAlchemy</code> which is an Object
+                    Relational Mapper
+                    for Python, similar to what Hibernate is being used for in Java. Thanks to this library it is no
+                    longer
+                    necessary to manually create the database tables, since SQLAlchemy will generate it from the classes
+                    created.</p>
+            </li>
+            <li><code>psycopg2</code>
+                <p class="ml-4">This package is used as a driver for the connection with PostgreSQL database. Is the
+                    most popular PostgreSQL adapter for the Python programming language.</p>
+            </li>
+            <li><code>python-dotenv</code>
+                <p class="ml-4">It is used for easily accessing the environment variables that we set such as passwords
+                    or secret keys.</p>
+            </li>
+            <li><code>Zappa</code>
+                <p class="ml-4">Zappa makes it very easy to deploy Python applications on AWS Lambda. We can think
+                    of it as a “serverless” web hosting tool for the Python web applications.</p>
+            </li>
+        </ul>
         <hr>
         <br>
         <h3 id="apis" class="text-info">API's</h3>
