@@ -343,11 +343,11 @@
                 <p class="ml-4">The operation logic can be described by the following steps:</p>
                 <ul style="list-style-type:square;">
                     <li>The customer navigates to the Home page of the WebCare website</li>
-                    <li>The user has the option to login. This option is mandatory for writing a review, to give a note,
+                    <li>The user has the option to register. This option is mandatory for writing a review, to give a note,
                         or to save to preferences to a doctor</li>
-                    <li>After the user completes the login form, the credentials are sent to the system. If the system
-                        validates the credentials, a confirmation message
-                        will be displayed, and the user is redirected to Home page</li>
+                    <li>After the user completes the register form, the data is sent to the system, and the account is  created. If the system
+                        validates the data received, a confirmation message
+                        will be displayed, and the user is redirected to Medical Staff page</li>
                     <li>Accesses Medical Staff page from menu</li>
                     <li>After user select the medical specialty and the city, the parameters are sent to system</li>
                     <li>The system will make a request to API with parameters send by user, and it will respond with the
@@ -368,6 +368,23 @@
                     <li>The system will make a request to API with the parameters specified by user, and it will respond
                         with the list of articles that contain the keywords</li>
                     <li>The list of articles are displayed on website page and can be visualized by the user</li>
+                </ul>
+            </li>
+            <br>
+            <li>
+                <span class="text-secondary"><code>Use case diagram for Doctor<br></code></span>
+                <img src="assets/usecase_doctor.png" class="img-fluid" alt="">
+                <br>
+                <p class="ml-4">The operation logic can be described by the following steps:</p>
+                <ul style="list-style-type:square;">
+                    <li>The customer navigates to the Medical Staff page of the WebCare website</li>
+                    <li>Accesses Feeds page from menu</li>
+                    <li>The user has the option to login. This option is mandatory for writing a review, to give a note,
+                        or to save to preferences to a doctor</li>
+                    <li>After the user completes the login form, the credentials are sent to the system. If the system
+                        validates the credentials, a confirmation message
+                        will be displayed, and the user is redirected to Medical Staff page</li>
+                    <li>Here the user has many options: to give a rating, to write a comment or tosave the doctor to favorites, and these options are saved into database</li>
                 </ul>
             </li>
         </ul>
