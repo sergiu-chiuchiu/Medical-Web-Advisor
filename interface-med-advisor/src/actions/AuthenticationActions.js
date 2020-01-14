@@ -2,9 +2,9 @@ import {
   TOGGLE_LOGIN_DISPLAY,
   TOGGLE_REGISTER_DISPLAY,
   USER_LOGIN,
-  SUBMIT_REGISTER
 } from "./ActionTypes";
-import {baseUrl, corsProxy} from "../config/endpoints"
+import { baseUrl, corsProxy } from "../config/endpoints";
+import Cookies from "js-cookie";
 
 export const toggleLoginDisplay = () => {
   return {
@@ -19,36 +19,39 @@ export const toggleRegisterDisplay = () => {
 };
 
 export const submitLogin = authData => {
-  authData.userName = "testUser";
-  authData.name = "tester";
-  console.log("mmmmm", authData)
+
   return dispatch => {
-    return fetch(`${corsProxy}${baseUrl}/user`,
-    {
+    return fetch(`${corsProxy}${baseUrl}/login`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
+         credentials: 'include',
       },
       body: JSON.stringify(authData)
     })
-      .then(response => response.json())
+      .then(response => {
+        return response.json();
+      })
       .then(res => {
-          dispatch({
-            type: USER_LOGIN,
-            payload: {
-              userAuthenticated: true,
-              email: res.email
-            }
-          });
+        Cookies.set('my_key', res["sessionId"])
+        dispatch({
+          type: USER_LOGIN,
+          payload: {
+            userAuthenticated: true
+          }
+        });
       });
   };
 };
 
-export const submitRegister = () => {
-  return {
-    type: SUBMIT_REGISTER
+export const submitRegister = registerData => {
+  return dispatch => {
+    return fetch(`${corsProxy}${baseUrl}/user`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(registerData)
+    })
   };
 };

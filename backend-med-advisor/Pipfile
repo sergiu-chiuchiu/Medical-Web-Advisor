@@ -16,6 +16,9 @@ sqlalchemy-utils = "*"
 zappa = "*"
 python-dotenv = "*"
 passlib = "*"
+flask-cors = "*"
+itsdangerous = "*"
+flask-httpauth = "*"
 
 [requires]
 python_version = "3.6"

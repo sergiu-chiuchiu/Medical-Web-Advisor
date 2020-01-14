@@ -1,36 +1,76 @@
-from flask import Blueprint, request, jsonify, abort
+from flask import Blueprint, request, jsonify, abort, g, redirect, url_for, make_response, Response
 from med_app.extensions import db
 from med_app.models.UserModel import User
 from med_app.schema import user_schema, users_schema
+from flask_httpauth import HTTPBasicAuth
 
+auth = HTTPBasicAuth()
 user = Blueprint('user', __name__)
+
+
+@user.route('/api/token')
+@auth.login_required
+def get_auth_token():
+    token = g.user.generate_auth_token()
+    return jsonify({ 'token': token.decode('ascii') })
+
+
+@auth.verify_password
+def verify_password(username_or_token, password):
+    # first try to authenticate by token
+    user = User.verify_auth_token(username_or_token)
+    if not user:
+        # try to authenticate with username/password
+        user = User.query.filter_by(userName = username_or_token).first()
+        if not user or not user.verify_password(password):
+            return False
+    g.user = user
+    return True
+
 
 @user.route('/login', methods=['POST'])
 def login():
-    if request.json['password'] is None or request.json['email'] is None:
+    email = request.json['email']
+    password = request.json['password']
+
+    if password is None or email is None:
         abort(400)  # missing arguments
 
-    email = request.json['email']
-    password = User.hash_password(request.json['password'])
+    found_user = User.query.filter_by(email=email).first()
 
-    return user_schema.jsonify(new_user)
+    if found_user is None:
+        abort(400) # no user with that email address
+
+    if not found_user.verify_password(password):
+        abort(400)
+
+    token = found_user.generate_auth_token()
+    # then credentials are correct
+
+    return jsonify(sessionId='{}'.format(token))
+
 
 # Create user
 @user.route('/user', methods=['POST'])
-def add_user():
-    # TODO add check if the email and username already exists
-    if request.json['userName'] is None or request.json['email'] is None:
-        abort(400)  # missing arguments
+def register_user():
     name = request.json['name']
     userName = request.json['userName']
     email = request.json['email']
     password = request.json['password']
 
-    new_user = User(name, userName, email, password)
+    if userName is None or email is None or request.json['password'] is None:
+        abort(400)  # missing arguments
+
+    if User.query.filter_by(userName=userName).first() is not None or User.query.filter_by(email=email).first():
+        abort(400)  # existing user or email
+
+    new_user = User(name, userName, email)
+    new_user.hash_password(password)
 
     db.session.add(new_user)
     db.session.commit()
-    return user_schema.jsonify(new_user)
+
+    return user_schema.jsonify(new_user), 201
 
 
 # Get all users

@@ -1,7 +1,7 @@
-from flask import Flask, Response, json
+from flask import Flask, Response, json, request
 
 from med_app.routes import UserRoutes
-from .extensions import db, ma
+from .extensions import db, ma, cors
 
 
 def create_app(name=__name__, config_file = 'settings.py'):
@@ -10,17 +10,14 @@ def create_app(name=__name__, config_file = 'settings.py'):
 
     @app.route('/')
     def index():
-        response = Response(json.dumps("Hello World!"), 200)
-        response.headers["Access-Control-Allow-Origin"] = "*"
-        response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        response = Response(json.dumps("Hello visitor!"), 200)
         return response
-
 
     app.config.from_pyfile(config_file)
     app.register_blueprint(UserRoutes.user)
     ma.init_app(app)
     db.init_app(app)
-
+    cors.init_app(app)
 
     @app.cli.command('resetdb')
     def resetdb_command():

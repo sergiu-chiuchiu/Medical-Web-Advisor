@@ -1,5 +1,9 @@
 from med_app.extensions import db
 from passlib.apps import custom_app_context as pwd_context
+from itsdangerous import (TimedJSONWebSignatureSerializer
+                          as Serializer, BadSignature, SignatureExpired)
+import os
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)  # auto increment by default
@@ -14,10 +18,24 @@ class User(db.Model):
         self.email = email
         self.password = password
 
-    @staticmethod
-    def hash_password(self, clearPassword):
-        self.password = pwd_context.encrypt(clearPassword)
+    def hash_password(self, clear_password):
+        self.password = pwd_context.encrypt(clear_password)
+
+    def verify_password(self, clear_password):
+        return pwd_context.verify(clear_password, self.password)
+
+    def generate_auth_token(self, expiration=6000):
+        s = Serializer(os.environ.get('SECRET_KEY'), expires_in=expiration)
+        return s.dumps({'id': self.id})
 
     @staticmethod
-    def verify_password(self, clearPassword):
-        return pwd_context.verify(clearPassword, self.password)
+    def verify_auth_token(token):
+        s = Serializer(os.environ.get('SECRET_KEY'))
+        try:
+            data = s.loads(token)
+        except SignatureExpired:
+            return None  # valid token, but expired
+        except BadSignature:
+            return None  # invalid token
+        user = User.query.get(data['id'])
+        return user

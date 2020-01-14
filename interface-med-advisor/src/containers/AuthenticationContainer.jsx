@@ -10,8 +10,8 @@ const mapDispatchToProps = dispatch => {
   return {
     toggleLoginDisplay: () => dispatch(toggleLoginDisplay()),
     toggleRegisterDisplay: () => dispatch(toggleRegisterDisplay()),
-    submitLogin: (test) => dispatch(submitLogin(test)),
-    submitRegister: () => dispatch(submitRegister()),
+    submitLogin: (loginData) => dispatch(submitLogin(loginData)),
+    submitRegister: (registerData) => dispatch(submitRegister(registerData)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Authentication);
